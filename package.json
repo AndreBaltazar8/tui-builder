@@ -1,0 +1,37 @@
+{
+  "name": "tui-builder",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "predev": "npm run build:wasm",
+    "dev": "vite",
+    "build:wasm": "wasm-pack build crates/tui-core --target web --out-dir ../../src/wasm --out-name tui_core",
+    "build": "npm run build:wasm && tsc -b && vite build",
+    "test": "vitest run",
+    "test:rust": "cargo test --workspace",
+    "check": "npm run test:rust && npm test && npm run build"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "fflate": "^0.8.2",
+    "idb-keyval": "^6.2.2",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^19.0.3",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^29.1.1",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.5",
+    "vitest": "^4.1.10",
+    "wasm-pack": "^0.15.0"
+  }
+}

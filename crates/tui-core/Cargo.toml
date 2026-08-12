@@ -1,0 +1,18 @@
+[package]
+name = "tui-builder-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+ratatui = { version = "0.30.2", default-features = false, features = ["widget-calendar", "serde"] }
+serde = { version = "1.0.217", features = ["derive"] }
+serde_json = "1.0.138"
+time = { version = "0.3.37", default-features = false }
+wasm-bindgen = "0.2.100"
+
+[dev-dependencies]
+pretty_assertions = "1.4.1"
